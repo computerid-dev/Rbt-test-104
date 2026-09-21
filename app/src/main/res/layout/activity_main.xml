@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RemoteBT"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textAllCaps="true"
+        android:textColor="@color/text_primary" />
+
+    <View
+        android:layout_width="56dp"
+        android:layout_height="6dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/accent_secondary" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="40dp"
+        android:text="Kontrol perangkat lain lewat Bluetooth"
+        android:textSize="14sp"
+        android:textColor="@color/text_secondary" />
+
+    <Button
+        android:id="@+id/btnHostMode"
+        style="@style/BrutalButtonPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginBottom="24dp"
+        android:text="@string/title_host" />
+
+    <Button
+        android:id="@+id/btnClientMode"
+        style="@style/BrutalButtonPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginBottom="4dp"
+        android:text="@string/title_client" />
+
+</LinearLayout>
