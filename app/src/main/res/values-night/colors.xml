@@ -1,0 +1,18 @@
+<resources>
+    <!-- Neo Brutalism - Dark Mode -->
+    <color name="background">#121212</color>
+    <color name="surface">#1E1E1E</color>
+
+    <color name="text_primary">#F5F5F0</color>
+    <color name="text_secondary">#B8B8B0</color>
+
+    <!-- Di dark mode, border & shadow dibalik jadi terang supaya tetap kelihatan tebal -->
+    <color name="border">#F5F5F0</color>
+    <color name="shadow">#F5F5F0</color>
+
+    <color name="accent">#2F5DFF</color>
+    <color name="accent_secondary">#FFD93D</color>
+
+    <color name="success">#22C55E</color>
+    <color name="danger">#FF6B6B</color>
+</resources>
