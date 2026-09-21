@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tombol neo-brutalism: sudut tegas, border tebal, shadow offset padat (bukan blur/glow) -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:top="4dp" android:left="4dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/shadow" />
+            <corners android:radius="0dp" />
+        </shape>
+    </item>
+    <item android:right="4dp" android:bottom="4dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/accent" />
+            <stroke android:width="3dp" android:color="@color/border" />
+            <corners android:radius="0dp" />
+        </shape>
+    </item>
+</layer-list>
