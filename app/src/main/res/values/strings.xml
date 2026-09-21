@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">RemoteBT</string>
+    <string name="title_host">Jadi Perangkat yang Dikontrol</string>
+    <string name="title_client">Kontrol Perangkat Lain</string>
+    <string name="notif_channel_name">Layanan Remote BT</string>
+    <string name="notif_running">RemoteBT aktif dan menunggu koneksi</string>
+</resources>
