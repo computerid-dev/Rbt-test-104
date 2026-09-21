@@ -1,0 +1,66 @@
+name: Build RemoteBT APK
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout kode
+        uses: actions/checkout@v4
+
+      - name: Setup JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+        with:
+          gradle-version: "8.13"
+
+      - name: Tambahkan cmdline-tools Android ke PATH
+        run: |
+          SDK_ROOT="${ANDROID_SDK_ROOT:-${ANDROID_HOME:-/usr/local/lib/android/sdk}}"
+          echo "ANDROID_HOME=$SDK_ROOT" >> "$GITHUB_ENV"
+          echo "ANDROID_SDK_ROOT=$SDK_ROOT" >> "$GITHUB_ENV"
+
+          if [ -d "$SDK_ROOT/cmdline-tools/latest/bin" ]; then
+            BIN_DIR="$SDK_ROOT/cmdline-tools/latest/bin"
+          else
+            BIN_DIR=$(find "$SDK_ROOT" -maxdepth 4 -type d -path "*/cmdline-tools/*/bin" 2>/dev/null | sort -V | tail -n 1)
+          fi
+
+          if [ -z "$BIN_DIR" ]; then
+            echo "cmdline-tools tidak ditemukan di image runner, download manual dari Google..."
+            mkdir -p "$SDK_ROOT/cmdline-tools"
+            curl -sSL -o /tmp/cmdline-tools.zip \
+              "https://dl.google.com/android/repository/commandlinetools-linux-14742923_latest.zip"
+            unzip -q /tmp/cmdline-tools.zip -d "$SDK_ROOT/cmdline-tools"
+            mv "$SDK_ROOT/cmdline-tools/cmdline-tools" "$SDK_ROOT/cmdline-tools/latest"
+            BIN_DIR="$SDK_ROOT/cmdline-tools/latest/bin"
+          fi
+
+          echo "Ketemu cmdline-tools di: $BIN_DIR"
+          echo "$BIN_DIR" >> "$GITHUB_PATH"
+
+      - name: Terima lisensi & pasang platform Android
+        run: |
+          yes | sdkmanager --licenses > /dev/null 2>&1 || true
+          sdkmanager "platforms;android-35" "build-tools;35.0.0"
+
+      - name: Build APK debug
+        run: gradle assembleDebug --no-daemon
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: RemoteBT-debug-apk
+          path: app/build/outputs/apk/debug/app-debug.apk
