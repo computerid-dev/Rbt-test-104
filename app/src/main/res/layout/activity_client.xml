@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_client"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:textColor="@color/text_primary" />
+
+        <Spinner
+            android:id="@+id/spinnerDevices"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/bg_card"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp" />
+
+        <EditText
+            android:id="@+id/etPin"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_card"
+            android:hint="Masukkan PIN dari perangkat tujuan"
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_secondary"
+            android:inputType="number"
+            android:maxLength="6"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp" />
+
+        <Button
+            android:id="@+id/btnConnect"
+            style="@style/BrutalButtonPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginTop="20dp"
+            android:text="Hubungkan" />
+
+        <TextView
+            android:id="@+id/tvClientStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Status: belum terhubung"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_secondary" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:background="@color/border" />
+
+        <GridLayout
+            android:id="@+id/gridControls"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:alpha="0.4">
+
+            <Button android:id="@+id/btnVolUp" style="@style/RemoteButton" android:text="Volume +" />
+            <Button android:id="@+id/btnVolDown" style="@style/RemoteButton" android:text="Volume -" />
+            <Button android:id="@+id/btnMute" style="@style/RemoteButton" android:text="Mute" />
+            <Button android:id="@+id/btnPlayPause" style="@style/RemoteButton" android:text="Play / Pause" />
+            <Button android:id="@+id/btnNext" style="@style/RemoteButton" android:text="Next Track" />
+            <Button android:id="@+id/btnPrev" style="@style/RemoteButton" android:text="Prev Track" />
+            <Button android:id="@+id/btnFlashOn" style="@style/RemoteButton" android:text="Senter On" />
+            <Button android:id="@+id/btnFlashOff" style="@style/RemoteButton" android:text="Senter Off" />
+            <Button android:id="@+id/btnLock" style="@style/RemoteButton" android:text="Kunci Layar" />
+
+        </GridLayout>
+
+    </LinearLayout>
+</ScrollView>
