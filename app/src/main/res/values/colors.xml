@@ -1,0 +1,21 @@
+<resources>
+    <!-- Neo Brutalism - Light Mode -->
+    <color name="background">#F3EFE6</color>
+    <color name="surface">#FFFFFF</color>
+
+    <color name="text_primary">#111111</color>
+    <color name="text_secondary">#4A4A4A</color>
+
+    <!-- Border & shadow tebal khas neo-brutalism -->
+    <color name="border">#111111</color>
+    <color name="shadow">#111111</color>
+
+    <color name="accent">#2F5DFF</color>
+    <color name="accent_secondary">#FFD93D</color>
+
+    <color name="success">#16A34A</color>
+    <color name="danger">#E5383B</color>
+
+    <!-- Warna teks tetap (tidak berubah per mode), dipakai di atas warna accent yang solid -->
+    <color name="text_on_accent">#111111</color>
+</resources>
